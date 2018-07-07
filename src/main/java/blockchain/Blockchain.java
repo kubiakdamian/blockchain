@@ -7,9 +7,11 @@ import java.util.ArrayList;
 @Getter
 public class Blockchain {
 	private ArrayList<Block> blockchain = new ArrayList<>();
-	
+    private static int difficulty;
+
 	public Blockchain() {
-		blockchain.add(createGenesisBlock());
+        this.difficulty = 4;
+        blockchain.add(createGenesisBlock());
 	}
 	
 	public void addBlock(Block newBlock) {
@@ -43,6 +45,11 @@ public class Blockchain {
 	}
 
 	private Block createGenesisBlock() {
-		return new Block(0, "aaaa", "bbbb");
+		return new Block("0000", "aaaa", "bbbb");
 	}
+
+
+    public static int getDifficulty() {
+        return difficulty;
+    }
 }
