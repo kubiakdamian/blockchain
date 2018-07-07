@@ -1,7 +1,12 @@
 package blockchain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Arrays;
 
+@Getter
+@Setter
 public class Block {
 	private String firstName;
 	private String lastName;
@@ -22,26 +27,6 @@ public class Block {
 	
 	@Override
 	public String toString() {
-		return "hash = " + blockHash;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public int getPreviousHash() {
-		return previousHash;
-	}
-	
-	public void setPreviousHash(int previousHash) {
-		this.previousHash = previousHash;
-	}
-	
-	public int getBlockHash() {
-		return blockHash;
+		return "hash = " + blockHash + "\n";
 	}
 }

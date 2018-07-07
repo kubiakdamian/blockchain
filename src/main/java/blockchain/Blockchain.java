@@ -1,7 +1,10 @@
 package blockchain;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 
+@Getter
 public class Blockchain {
 	private ArrayList<Block> blockchain = new ArrayList<>();
 	
@@ -19,10 +22,10 @@ public class Blockchain {
 	
 	@Override
 	public String toString() {
-		return "Blockchain [blockchain=" + blockchain + "]";
+		return "blockchain:\n" + blockchain;
 	}
 	
-	private boolean isChainValid() {
+	public boolean isChainValid() {
 		for(int i = 1; i < blockchain.size(); i++) {
 			Block currentBlock = blockchain.get(i);
 			Block previousBlock = blockchain.get(i - 1);
@@ -42,6 +45,4 @@ public class Blockchain {
 	private Block createGenesisBlock() {
 		return new Block(0, "aaaa", "bbbb");
 	}
-	
-	
 }

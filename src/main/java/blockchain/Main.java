@@ -10,6 +10,10 @@ public class Main {
 		blockchain.addBlock(new Block(blockchain.getLatestBlock().getBlockHash(), "Abcd", "Efgh"));
 		
 		System.out.println(blockchain);
-			
+		System.out.println("Is blockchain valid? " + blockchain.isChainValid());
+
+		blockchain.getBlockchain().get(1).setFirstName("NEW");
+		System.out.println("First name changed");
+		System.out.println("Is blockchain valid? " + blockchain.isChainValid());
 	}
 }
