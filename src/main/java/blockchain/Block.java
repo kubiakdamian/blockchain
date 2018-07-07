@@ -24,13 +24,10 @@ public class Block {
 	}
 	
 	public String calculateHash() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(this.firstName).append(this.lastName).append(this.previousHash).append(this.nonce);
-		Object[] content = {this.firstName.hashCode(), this.lastName.hashCode(), this.previousHash, this.nonce};
-		return DigestUtils.sha256Hex(builder.toString());
+		return DigestUtils.sha256Hex(this.firstName + this.lastName + this.previousHash + this.nonce);
 	}
 
-	public void mineBlock(int difficulty){
+	public String mineBlock(int difficulty){
 		blockHash = calculateHash();
 		while(!blockHash.substring(0, difficulty).equals(createStringOfZeros(difficulty))){
 			nonce++;
@@ -38,6 +35,8 @@ public class Block {
 		}
 
 		System.out.println("Block mained: " + blockHash);
+
+		return blockHash;
 	}
 
 	private String createStringOfZeros(int length){

@@ -7,7 +7,7 @@ public class Main {
 		blockchain = new Blockchain();
 		blockchain.addBlock(new Block(blockchain.getLatestBlock().getBlockHash(), "John", "Kowalski"));
 		blockchain.addBlock(new Block(blockchain.getLatestBlock().getBlockHash(), "Jan", "Nowak"));
-		blockchain.addBlock(new Block(blockchain.getLatestBlock().getBlockHash(), "Abcd", "Efgh"));
+		blockchain.addBlock(new Block(blockchain.getLatestBlock().getBlockHash(), "Abddscd", "Efgh"));
 		
 		System.out.println(blockchain);
 		System.out.println("Is blockchain valid? " + blockchain.isChainValid());

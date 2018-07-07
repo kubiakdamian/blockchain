@@ -31,12 +31,12 @@ public class Blockchain {
 		for(int i = 1; i < blockchain.size(); i++) {
 			Block currentBlock = blockchain.get(i);
 			Block previousBlock = blockchain.get(i - 1);
-			
-			if(currentBlock.getBlockHash() != currentBlock.calculateHash()) {
+
+			if(!currentBlock.getBlockHash().equals(currentBlock.mineBlock(difficulty))) {
 				return false;
 			}
-			
-			if(currentBlock.getPreviousHash() != previousBlock.getBlockHash()) {
+
+			if(!currentBlock.getPreviousHash().equals(previousBlock.getBlockHash())) {
 				return false;
 			}
 		}
